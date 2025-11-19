@@ -1,7 +1,7 @@
 
 const Contact = () => {
   return (
-    <div className = "w-full h-screen">
+    <div id = "contact" className = "w-full h-screen">
       Contact
     </div>
   )

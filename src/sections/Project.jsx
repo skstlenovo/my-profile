@@ -1,7 +1,7 @@
 
 const Project = () => {
   return (
-    <div className = "w-full h-screen">
+    <div id="projects" className = "w-full h-screen">
       Project
     </div>
   )

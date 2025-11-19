@@ -1,7 +1,7 @@
 
 const Experience = () => {
   return (
-    <div className = "w-full h-screen">
+    <div id="experience" className = "w-full h-screen">
       Experience
     </div>
   )

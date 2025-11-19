@@ -1,12 +1,16 @@
 // src/components/Navbar.jsx
 import { useEffect, useState } from "react";
+import CV from "../assets/Sanjay_Java_Developer_[3.3Yrs].pdf";
 import Logo from "../assets/logo.png";
 
 const LINKS = [
   { id: "home", label: "Home", href: "#home" },
+  { id: "about", label: "About", href: "#about" },
+  { id: "skills", label: "Skills", href: "#skills" },
   { id: "projects", label: "Projects", href: "#projects" },
   { id: "experience", label: "Experience", href: "#experience" },
   { id: "contact", label: "Contact", href: "#contact" },
+  { id: "cv", label: "Download CV", href: CV , download: true},
 ];
 
 export default function Navbar() {
@@ -62,13 +66,13 @@ export default function Navbar() {
           visible ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        <nav className="mx-auto max-w-7xl px-6">
-          <div className="flex items-center justify-between gap-4 rounded-b-2xl bg-white/6 px-4 py-3 backdrop-blur-md shadow-lg ring-1 ring-white/6">
+        <nav className="mx-auto max-w-full px-6">
+          <div className="flex items-center justify-between px-4 py-3">
             {/* Brand */}
             <div className="flex items-center gap-3">
-              <img src={Logo} alt="logo" className="h-9 w-9 rounded-md object-cover" />
+              <img src={Logo} alt="logo" className="h-11 w-11 rounded-md object-cover" />
               <div className="hidden sm:block">
-                <div className="text-sm font-bold text-white leading-none">Sanjay Kumar</div>
+                <div className="text-lg font-bold text-white leading-none ">Sanjay Kumar</div>
                 <div className="text-xs text-white/60">Software Developer</div>
               </div>
             </div>
@@ -83,6 +87,7 @@ export default function Navbar() {
                       <a
                         href={l.href}
                         onClick={() => onLinkClick(l.href)}
+                        download={l.download ? "Sanjay-Kumar-CV.pdf" : undefined}
                         className={`relative inline-block px-1 py-1 text-sm font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-pink-400 ${
                           isActive ? "text-white" : "text-white/80 hover:text-white"
                         }`}
@@ -92,7 +97,7 @@ export default function Navbar() {
                         {/* underline */}
                         <span
                           className={`absolute left-0 -bottom-1 h-0.5 w-full transform origin-left transition-transform duration-200 ${
-                            isActive ? "scale-x-100 bg-gradient-to-r from-pink-400 to-violet-400" : "scale-x-0 bg-white/40"
+                            isActive ? "scale-x-100 bg-linear-to-r from-pink-400 to-violet-400" : "scale-x-0 bg-white/40"
                           }`}
                           style={{ transform: isActive ? "scaleX(1)" : "scaleX(0)" }}
                         />
