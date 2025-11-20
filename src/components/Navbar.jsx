@@ -88,9 +88,10 @@ export default function Navbar() {
                         href={l.href}
                         onClick={() => onLinkClick(l.href)}
                         download={l.download ? "Sanjay-Kumar-CV.pdf" : undefined}
-                        className={`relative inline-block px-1 py-1 text-sm font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-pink-400 ${
-                          isActive ? "text-white" : "text-white/80 hover:text-white"
-                        }`}
+                        className={`relative inline-block px-1 py-1 text-sm font-medium transition-transform duration-200 ease-out transform will-change-transform
+                                    focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-pink-400
+                                    ${isActive ? "text-white" : "text-white/80 hover:text-white"}
+                                    hover:-translate-y-1 hover:scale-[1.03] hover:shadow-lg`}
                         aria-current={isActive ? "page" : undefined}
                       >
                         {l.label}
