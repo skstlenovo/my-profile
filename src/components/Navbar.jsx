@@ -1,6 +1,5 @@
 // src/components/Navbar.jsx
 import { useEffect, useState } from "react";
-import CV from "../assets/Sanjay_Java_Developer_[3.3Yrs].pdf";
 import Logo from "../assets/logo.png";
 
 const LINKS = [
@@ -10,7 +9,7 @@ const LINKS = [
   { id: "projects", label: "Projects", href: "#projects" },
   { id: "experience", label: "Experience", href: "#experience" },
   { id: "contact", label: "Contact", href: "#contact" },
-  { id: "cv", label: "Download CV", href: CV , download: true},
+  { id: "cv", label: "Download CV", href: "/Sanjay_Java_Developer_[3.3Yrs].pdf" , download: true},
 ];
 
 export default function Navbar() {

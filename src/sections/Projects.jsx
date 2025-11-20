@@ -1,5 +1,5 @@
 
-const Project = () => {
+const Projects = () => {
   return (
     <div id="projects" className = "w-full h-screen">
       Project
@@ -7,4 +7,4 @@ const Project = () => {
   )
 }
 
-export default Project
+export default Projects
