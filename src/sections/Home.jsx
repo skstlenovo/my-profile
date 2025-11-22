@@ -75,7 +75,7 @@ export default function Home(){
       </div>
       <div className="relative z-10 h-full w-full max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2">
         <div className="flex flex-col justify-center h-full text-center lg:text-left relative">
-          <div className="w-full lg:pr-24 mx-auto max-w-3xl">
+          <div className="w-full lg:pr-20 mx-auto max-w-3xl">
             <motion.div
             className=" mb-3 text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-white tracking-wide min-h-[1.6em]"
             initial={{opacity:0 , y:12}}
@@ -91,7 +91,7 @@ export default function Home(){
             animate={{opacity:1, y:0}}
             transition={{duration:1}}
              >
-            Hello I'm
+            Hello, I'm
             <br/>
             <span className="text-white font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl lg:whitespace-nowrap">
             Sanjay Kumar
@@ -134,6 +134,13 @@ export default function Home(){
           </div>
         </div>
         <div className="relative hidden lg:block">
+        <div className="absolute top-1/3 -translate-y-1/3 pointer-events-none"
+          style={{
+            right:"45px", width:"min(25vw, 410px)", height:"min(30vw, 760px)", borderRadius:"50%",
+            filter: "blur(80px)", opacity:0.32,
+            background: "conic-gradient(from 0deg, #1cd8d2, #00bf8f,#302b63, #1cd8d2"
+          }}
+        />
         <motion.img
           src={Photo}
           alt="Sanjay Kumar"
@@ -141,23 +148,15 @@ export default function Home(){
           style={{
             right: "-40px",
             width: "min(40vw, 700px)",
-            maxHeight: "66vh",
+            maxHeight: "75vh",
             WebkitMaskImage:
               "linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%)",
             maskImage:
-              "linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%)",
-            filter: `
-        // drop-shadow(0 -3px 35px rgba(124,58,237,0.45))   /* purple highlight */
-        drop-shadow(0 -4px 55px rgba(6,182,212,0.30))    /* cyan glow */
-        // drop-shadow(0 -6px 75px rgba(28,216,210,0.25))   /* teal haze */
-        brightness(1.03)
-        contrast(1.05)
-      `,
+              "linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%)",   
           }}
           initial={{ opacity: 0, y: 40, scale: 0.98 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ delay: 0.2, duration: 0.8 }}
-          
+          transition={{ delay: 0.2, duration: 0.8 }} 
         />
       </div>
       </div>

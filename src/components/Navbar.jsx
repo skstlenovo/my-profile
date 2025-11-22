@@ -17,6 +17,8 @@ export default function Navbar() {
   const [visible, setVisible] = useState(true); // navbar show/hide on scroll
   const [active, setActive] = useState(() => (typeof window !== "undefined" ? window.location.hash || "#home" : "#home"));
 
+  
+
   // scroll hide / show behavior
   useEffect(() => {
     let lastY = window.scrollY;
@@ -52,6 +54,33 @@ export default function Navbar() {
     window.addEventListener("hashchange", onHash);
     return () => window.removeEventListener("hashchange", onHash);
   }, []);
+
+  useEffect(() => {
+  const handleScroll = () => {
+    const scrollY = window.scrollY + 120; // offset for navbar height
+
+    for (const link of LINKS) {
+      if (!link.href.startsWith("#")) continue;
+      const id = link.href.slice(1);
+      const section = document.getElementById(id);
+      if (!section) continue;
+
+      const top = section.offsetTop;
+      const bottom = top + section.offsetHeight;
+
+      if (scrollY >= top && scrollY < bottom) {
+        setActive(`#${id}`);
+        break;
+      }
+    }
+  };
+
+  window.addEventListener("scroll", handleScroll, { passive: true });
+  handleScroll(); // run on page load
+
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
+
 
   const onLinkClick = (href) => {
     setActive(href);
