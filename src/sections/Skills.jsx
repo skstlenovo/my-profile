@@ -1,10 +1,77 @@
+import { motion, useMotionValue } from "framer-motion";
+import { useRef, useState } from "react";
+import { BiLogoSpringBoot } from "react-icons/bi";
+import { BsFiletypeSql } from "react-icons/bs";
+import { FaAws, FaCss3, FaGithub, FaHtml5, FaJava, FaJenkins, FaNodeJs, FaReact } from "react-icons/fa";
+import { FaFlutter } from "react-icons/fa6";
+import { IoLogoJavascript } from "react-icons/io5";
+import { RiOpenaiFill } from "react-icons/ri";
+import { SiHibernate, SiMongodb, SiMysql, SiVite } from "react-icons/si";
 
-const Skills = () => {
+
+export default function Skills() {
+  const skills = [
+    {icon: <FaJava />, name: "Java"},
+    {icon: <BiLogoSpringBoot />, name: "Spring Boot"},
+    {icon: <SiHibernate />, name:"Hibernate"},
+    {icon: <FaHtml5 />, name: "HTML"},
+    {icon: <BsFiletypeSql />, name: "SQL"},
+    {icon: <SiMysql />, name: "MySql"},
+    {icon: <SiMongodb />, name: "MongoDB"},
+    {icon: <IoLogoJavascript />, name: "JavaScript"},
+    {icon: <FaReact />, name: "React"},
+    {icon: <FaCss3 />, name: "CSS"},
+    {icon: <RiOpenaiFill />, name: "OpenAI"},
+    {icon: <FaGithub />, name: "GitHub"},
+    {icon: <FaAws />, name: "AWS"},
+    {icon: <FaJenkins />, name: "Jenkins"},
+    {icon: <FaFlutter />, name: "Flutter"},
+    {icon: <FaNodeJs />, name: "NodeJs"},
+    {icon: <SiVite />, name: "Vite"},
+  ];
+
+  const repeated = [...skills, ...skills];
+  const [dir, setDir] = useState(-1);
+  const [active, setActive] = useState(false);
+  const sectionRef = useRef(null);
+  const trackRef = useRef(null);
+  const touchY = useRef(null);
+  const x = useMotionValue(0);
+
   return (
-    <div id="skills" className = "w-full h-screen">
-      Skills
+    <section id="skills" ref ={sectionRef} className="h-1/2 w-full pb-8 flex flex-col items-center justify-center relative bg-black text-white overflow-hidden">
+    <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute top-1/4 left-0  w-[300px] h-[300px] rounded-full bg-gradient-to-r from-[#302b63] via-[#00bf8f] to-[#1cd8d2] opacity-20 blur-[120px] animate-pulse"></div>
+      <div className="absolute bottom-1/4 right-0  w-[300px] h-[300px] rounded-full bg-gradient-to-r from-[#302b63] via-[#00bf8f] to-[#1cd8d2] opacity-20 blur-[120px] animate-pulse delay-500">
+      </div>
     </div>
+    <motion.h2 className="text-4xl mt-5 sm:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#1cd8d2] via-[#00bf8f] to-[#302b63] z-10"
+    initial={{opacity:0, y:-30}}
+    whileInView={{opacity:1 , y:0}}
+    transition={{duration:0.5, delay:0.1}}>
+      My Skills
+    </motion.h2>
+    <motion.p className="mt-2 mb-8 text-white/90 text-base sm:text-lg z-10"
+    initial={{opacity:0, y:-10}}
+    whileInView={{opacity:1 , y:0}}
+    transition={{duration:0.5, delay:0.1}}>
+      Morder Applications | Morden Technologies
+    </motion.p>
+    <div className="relative w-full overflow-hidden">
+      <motion.div ref = {trackRef} className="flex gap-10 text-6xl text-[#1cd8d2]">
+        {repeated.map((skill, index) => (
+          <motion.div key={index} className="flex flex-col items-center gap-1"
+          initial={{opacity:0, y:-30}}
+          whileInView={{opacity:1 , y:0}}
+          transition={{duration:0.5, delay:0.1}}
+          viewport={{once:true, amount:0.4}}>
+            {skill.icon}
+            <p className="text-sm">{skill.name}</p>
+          </motion.div>
+        ))}
+      </motion.div>
+    </div>
+      
+    </section>
   )
 }
-
-export default Skills
