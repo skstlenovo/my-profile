@@ -1,5 +1,5 @@
 import { motion, useMotionValue } from "framer-motion";
-import { useRef, useState } from "react";
+import { onScroll, useEffect, useRef, useState } from "react";
 import { BiLogoSpringBoot } from "react-icons/bi";
 import { BsFiletypeSql } from "react-icons/bs";
 import { FaAws, FaCss3, FaGithub, FaHtml5, FaJava, FaJenkins, FaNodeJs, FaReact } from "react-icons/fa";
@@ -38,6 +38,59 @@ export default function Skills() {
   const touchY = useRef(null);
   const x = useMotionValue(0);
 
+  useEffect(()=>{
+    const el = sectionRef.current;
+    if(!el) return;
+
+    const io = new IntersectionObserver((
+      [entry])=>{
+      setActive(entry.isIntersecting && entry.intersectionRatio > 0.1);
+    },
+    {
+      threshold:[0.1]
+    })
+    io.observe(el);
+    return () => io.disconnect();
+  },[])
+
+  useEffect(() => {
+    if(!active) return;
+    const onWheel = (e) => setDir(e.deltaY > 0 ? -1 : 1);
+    const onTouchStart = (e) => (touchY.current = e.touches[0].clientY);
+    const onTouchMove = (e) => {
+      if(touchY.current == null) return;
+      const delta = e.touches[0].clientY - touchY.current;
+      setDir(delta > 0 ? 1 : -1);
+      touchY.current = e.touches[0].clientY;
+    };
+    window.addEventListener("wheel", onWheel, { passive: true });
+    window.addEventListener("touchstart", onTouchStart, { passive: true });
+    window.addEventListener("touchmove", onTouchMove, { passive: true });
+
+    return () => {
+      window.removeEventListener("wheel", onWheel);
+      window.removeEventListener("touchstart", onTouchStart);
+      window.removeEventListener("touchmove", onTouchMove);
+    };
+  },[active])
+
+  useEffect(() => {
+    let id;
+    let last = performance.now();
+    const SPEED = 80;
+
+    const tick = (now) => {
+      const dt = (now - last)/1000;
+      last = now;
+      let next =x.get() + dir * SPEED * dt;
+      const loop = trackRef.current?.scrollWidth/2 || 0;
+      if(loop){
+        if(next <= -loop) next += loop;
+        if(next >= loop) next -= loop;
+      }
+    }
+    return () => window.removeEventListener("scroll", onScroll);
+  },[active])
   return (
     <section id="skills" ref ={sectionRef} className="h-1/2 w-full pb-8 flex flex-col items-center justify-center relative bg-black text-white overflow-hidden">
     <div className="absolute inset-0 pointer-events-none">
