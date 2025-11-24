@@ -114,7 +114,7 @@ export default function Skills() {
     initial={{opacity:0, y:-10}}
     whileInView={{opacity:1 , y:0}}
     transition={{duration:0.5, delay:0.1}}>
-      Morder Applications | Morden Technologies
+      Morden Applications | Morden Technologies
     </motion.p>
     <div className="relative w-full overflow-hidden">
       <motion.div ref = {trackRef} className="flex gap-10 text-6xl text-[#1cd8d2]"
