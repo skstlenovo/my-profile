@@ -1,5 +1,5 @@
 import { motion, useMotionValue } from "framer-motion";
-import { onScroll, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BiLogoSpringBoot } from "react-icons/bi";
 import { BsFiletypeSql } from "react-icons/bs";
 import { FaAws, FaCss3, FaGithub, FaHtml5, FaJava, FaJenkins, FaNodeJs, FaReact } from "react-icons/fa";
@@ -71,7 +71,7 @@ export default function Skills() {
       window.removeEventListener("wheel", onWheel);
       window.removeEventListener("touchstart", onTouchStart);
       window.removeEventListener("touchmove", onTouchMove);
-    };
+    }
   },[active])
 
   useEffect(() => {
@@ -86,11 +86,17 @@ export default function Skills() {
       const loop = trackRef.current?.scrollWidth/2 || 0;
       if(loop){
         if(next <= -loop) next += loop;
-        if(next >= loop) next -= loop;
+        if(next >= 0) next -= loop;
       }
+      x.set(next)
+      id = requestAnimationFrame(tick)
     }
-    return () => window.removeEventListener("scroll", onScroll);
-  },[active])
+    id = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(id);
+  },[dir, x]);
+
+  
+
   return (
     <section id="skills" ref ={sectionRef} className="h-1/2 w-full pb-8 flex flex-col items-center justify-center relative bg-black text-white overflow-hidden">
     <div className="absolute inset-0 pointer-events-none">
@@ -111,16 +117,19 @@ export default function Skills() {
       Morder Applications | Morden Technologies
     </motion.p>
     <div className="relative w-full overflow-hidden">
-      <motion.div ref = {trackRef} className="flex gap-10 text-6xl text-[#1cd8d2]">
+      <motion.div ref = {trackRef} className="flex gap-10 text-6xl text-[#1cd8d2]"
+      style={{x, whiteSpace:"nowrap", willChange: "transform"}}>
         {repeated.map((skill, index) => (
-          <motion.div key={index} className="flex flex-col items-center gap-1"
-          initial={{opacity:0, y:-30}}
-          whileInView={{opacity:1 , y:0}}
-          transition={{duration:0.5, delay:0.1}}
-          viewport={{once:true, amount:0.4}}>
+          <div key={index} className="flex flex-col items-center gap-2 min-w-[120px]"
+          aria-label = {skill.name}
+          title = {skill.name}>
+          <span className="hover:scale-123 transition-transform duration-300">
             {skill.icon}
-            <p className="text-sm">{skill.name}</p>
-          </motion.div>
+          </span>
+          <p className="text-sm">
+            {skill.name}
+          </p>
+          </div>
         ))}
       </motion.div>
     </div>
