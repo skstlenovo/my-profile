@@ -65,8 +65,8 @@ export default function About() {
         transition={{duration:0.6}}
         viewport={{once:true, amount:0.4}}>
           <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">About Me</h3>
-          <p className="text-gray-300 leading-relaxed text-base sm:text-lg">I'm a software developer, social worker and web developer - passionate about building fast, resilient applications and user-friendly applications.</p>
-          <p className="mt-4 text-gray-400 text-base sm:text-lg">I love turning ideas into scalable, user-friendly products that make an impact.</p>
+          <p className="text-gray-300 leading-relaxed text-base sm:text-lg">I enjoy solving complex problems, optimizing systems, and creating solutions that enhance user experience. I have contributed to real-world projects including AI-based recruitment platforms and government applications, handling feature development, debugging, system design, and deployments.</p>
+          <p className="mt-4 text-gray-400 text-base sm:text-lg">With a strong passion for continuous learning and clean, efficient code, I aim to build products that are robust, impactful, and aligned with modern engineering standards.</p>
         </motion.div>
       </div>
     </section>

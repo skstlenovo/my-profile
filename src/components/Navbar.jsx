@@ -8,8 +8,8 @@ const LINKS = [
   { id: "skills", label: "Skills", href: "#skills" },
   { id: "projects", label: "Projects", href: "#projects" },
   { id: "experience", label: "Experience", href: "#experience" },
-  { id: "contact", label: "Contact", href: "#contact" },
-  { id: "cv", label: "Download CV", href: "/Sanjay_Java_Developer_[3.3Yrs].pdf" , download: true},
+  // { id: "contact", label: "Contact", href: "#contact" },
+  // { id: "cv", label: "Download CV", href: "/Sanjay_Java_Developer_[3.3Yrs].pdf" , download: true},
 ];
 
 export default function Navbar() {

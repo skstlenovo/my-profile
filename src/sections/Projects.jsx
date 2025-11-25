@@ -1,166 +1,123 @@
 // src/sections/Projects.jsx
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 import Adila from "../assets/adila.png";
 import Mrr from "../assets/MRR.png";
-// Replace this with your real 3rd featured project image file in /src/assets
-import Project3Img from "../assets/adila.png";
 
 /**
- * Projects — Enhanced:
- * - 3 featured projects (images supported)
- * - Grid of other projects with hover animation + click-to-open details modal
- * - Background animated blobs (framer-motion)
- * - Single-file, ready to paste into src/sections/Projects.jsx
- *
- * NOTE: If "../assets/project3.png" doesn't exist, add your image there or replace the import path.
+ * Projects (Option 3)
+ * - Single responsive grid (all projects equal)
+ * - Click a card to open modal with full details (B = yes)
+ * - Clean, bug-free, accessible
+ * - Uses local resume file path for optional reference (see RESUME_PATH)
  */
 
-const FEATURED = [
-  {
-    id: "adilacs",
-    title: "AI Recruitment Portal",
-    role: "Backend · System Design",
-    url: "https://adilacs.net/",
-    blurb:
-      "AI-driven recruitment platform: CV parsing, structured extraction and candidate ranking using vector similarity.",
-    bullets: [
-      "Microservices with Spring Boot for CV ingestion & parsing",
-      "Parsed data stored in MongoDB and vector DB for similarity search",
-      "Recommendation pipeline with scoring & pagination",
-    ],
-    colors: ["#302b63", "#00bf8f"],
-    tech: ["Java", "Spring Boot", "MongoDB", "Vector DB"],
-    image: Adila,
-  },
+const RESUME_PATH = "/mnt/data/Sanjay_Java_Developer_[3.3Yrs] (2).pdf";
+
+const PROJECTS = [
+  
   {
     id: "mrr",
     title: "MRR — Modern Record Room",
-    role: "Secure Govt. Record System",
+    subtitle: "Digitilize old land records",
     url: "https://mrr.jharkhand.gov.in/",
-    blurb:
-      "Secure record-retrieval system for government archives with indexed scans, metadata search & role-based access.",
-    bullets: [
-      "Secure APIs & SHA-512 authentication",
-      "Indexed scanned records with efficient retrieval",
-      "Production hardening for performance & reliability",
-    ],
-    colors: ["#f97316", "#7c3aed"],
-    tech: ["Java", "Spring Boot", "MySQL"],
     image: Mrr,
-  },
-  {
-    id: "project3",
-    title: "Project Three (Replace image)",
-    role: "Fullstack · Integration",
-    url: "#",
-    blurb:
-      "Third flagship project — replace this placeholder with a real title/image. Demonstrates fullstack integration and deployment.",
+    summary:
+      `"MRR" (Modern Record Room) is a web application designed exclusively for the Jharkhand Government. It 
+      facilitates efficient retrieval of digital files, including old Khatiyan and case records, stored on a secure server. This 
+      application serves as a comprehensive solution for accessing and managing historical land-related documents in 
+      digital format.`,
     bullets: [
-      "Designed & implemented service APIs",
-      "Built frontend dashboards and secure auth",
-      "Deployed with CI/CD and monitoring",
+      "Played a key role in enhancing project functionality by integrating impactful new features. ",
+      "Developed a secure login page utilizing SHA-512 encryption for password hashing to ensure data security. ",
+      "Implemented CRUD operations using Spring Boot APIs for effective data managemen.",
     ],
-    colors: ["#0ea5a4", "#7c3aed"],
-    tech: ["Java", "React", "Docker"],
-    image: Project3Img,
+    tech: ["Java", "Spring Boot", "MySQL"],
+    colors: ["#f97316", "#7c3aed"],
   },
-];
-
-const GRID = [
   {
-    id: "donation",
-    title: "NGO Donation Portal",
-    subtitle: "Crowdfunding portal",
-    short: "Crowdfunding portal with payment flows and admin dashboards.",
-    tech: ["Java", "React"],
+    id: "adilacs",
+    title: "Recruitment Portal",
+    subtitle: "Resume parsing · Candidate recommendation for hiring process",
+    url: "https://adilacs.net/",
+    image: Adila,
+    summary:
+      `This AI-driven project streamlines the recruitment process by automating candidate shortlisting based on job 
+descriptions (JDs). The application collects data automatically—users simply upload CVs, which are processed to 
+extract relevant details using AI tools. The extracted data is stored in both a relational database (MongoDB) and a 
+vector database for efficient search and retrieval. This solution significantly reduces manual effort and enhances 
+recruitment efficiency. `,
+    bullets: [
+      "Designed and developed both backend services using Spring Boot and frontend interfaces using Angular.",
+      "Integrated AI tools to extract CV details for automated shortlisting against job descriptions.",
+      "Implemented seamless data storage in MongoDB and a vector database for optimized data retrieval and similarity searches.",
+      "Ensured scalability and efficiency of the application for real-world recruitment workflows.",
+    ],
+    tech: ["Java", "Spring Boot", "MongoDB", "Microservices"],
+    colors: ["#302b63", "#00bf8f"],
+  },
+  {
+    id: "crowdfunding",
+    title: "Crowdfunding Platform",
+    subtitle: "Donation & fundraising",
     url: "#",
-  },
-  {
-    id: "crm",
-    title: "Recruitment CRM",
-    subtitle: "Candidate lifecycle",
-    short: "Candidate lifecycle, interview scheduling, and tracking.",
+    image: Mrr,
+    summary: "Candidate lifecycle tracking, interview scheduling and reporting.",
+    bullets: ["Lifecycle tracking", "Interview scheduling", "CSV/Excel exports"],
     tech: ["Java", "Angular", "MongoDB"],
-    url: "#",
+    colors: ["#0ea5a4", "#7c3aed"],
   },
   {
     id: "billing",
     title: "Billing & Invoice System",
-    subtitle: "Invoice engine",
-    short: "Invoice generation, tax rules, PDF exports.",
-    tech: ["Spring Boot", "MySQL"],
+    subtitle: "Invoices & tax rules",
     url: "#",
+    repo: "#",
+    image: Mrr,
+    summary: "End-to-end billing with invoice generation, tax calculation and PDF exports.",
+    bullets: ["Invoice engine", "Tax calculation rules", "PDF reports"],
+    tech: ["Spring Boot", "MySQL"],
+    colors: ["#0369a1", "#0ea5a4"],
+  },
+  {
+    id: "donation",
+    title: "NGO Donation Portal",
+    subtitle: "Crowdfunding & payments",
+    url: "#",
+    repo: "#",
+    image: Mrr,
+    summary: "Donation portal with payment flows, admin dashboards and transaction receipts.",
+    bullets: ["Payment gateway integration", "Admin dashboards", "Donation receipts"],
+    tech: ["Java", "React"],
+    colors: ["#6d28d9", "#d946ef"],
   },
   {
     id: "analytics",
     title: "Analytics Pipeline",
     subtitle: "ETL & dashboards",
-    short: "ETL and dashboarding for operational metrics.",
+    url: "#",
+    repo: "#",
+    image: Mrr,
+    summary: "Data ingestion and analytics pipeline for operational metrics and dashboards.",
+    bullets: ["ETL pipelines", "Aggregations & caching", "Dashboard visualizations"],
     tech: ["Node.js", "MongoDB", "Redis"],
-    url: "#",
-  },
-  {
-    id: "integration",
-    title: "3rd-party Integrations",
-    subtitle: "API orchestration",
-    short: "API orchestration + retry & monitoring strategies.",
-    tech: ["Spring Boot", "RabbitMQ"],
-    url: "#",
-  },
-  {
-    id: "tooling",
-    title: "Developer Tooling",
-    subtitle: "CI & automation",
-    short: "CI scripts, deployment helpers, and test harnesses.",
-    tech: ["Bash", "Jenkins"],
-    url: "#",
+    colors: ["#0891b2", "#0ea5a4"],
   },
 ];
 
-function Pill({ children }) {
-  return <span className="text-xs px-2 py-1 rounded-full bg-white/6 text-white/90">{children}</span>;
-}
-
-/* small animated background blob component (reusable) */
-function AnimatedBlob({ className = "", color = "#302b63", style = {}, delay = 0 }) {
+function TechBadge({ children }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.9, y: 0 }}
-      animate={{ opacity: 1, scale: [0.98, 1.02, 0.98], y: [0, -10, 0] }}
-      transition={{ duration: 8, repeat: Infinity, delay }}
-      className={className}
-      style={{
-        borderRadius: "9999px",
-        background: `radial-gradient(circle at 30% 20%, ${color} 0%, rgba(0,0,0,0) 60%)`,
-        ...style,
-      }}
-      aria-hidden
-    />
+    <span className="text-xs px-2 py-1 rounded-full bg-white/6 text-white/90">
+      {children}
+    </span>
   );
 }
 
 export default function Projects() {
-  const [active, setActive] = useState(FEATURED[0]);
-  const [selected, setSelected] = useState(null); // for grid details
-  const containerRef = useRef(null);
+  const [selected, setSelected] = useState(null);
 
-  useEffect(() => {
-    const onKey = (e) => {
-      if (e.key === "ArrowRight") {
-        setActive((a) => FEATURED[(FEATURED.indexOf(a) + 1) % FEATURED.length]);
-      } else if (e.key === "ArrowLeft") {
-        setActive((a) => FEATURED[(FEATURED.indexOf(a) - 1 + FEATURED.length) % FEATURED.length]);
-      } else if (e.key === "Escape") {
-        setSelected(null);
-      }
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, []);
-
-  // lock scroll when modal open
+  // lock scroll when modal is open
   useEffect(() => {
     document.body.style.overflow = selected ? "hidden" : "";
     return () => {
@@ -169,140 +126,110 @@ export default function Projects() {
   }, [selected]);
 
   return (
-    <section id="projects" className="relative py-20 px-6 lg:px-12 bg-black text-white overflow-hidden">
-      {/* animated background blobs */}
+    <section id="projects" className="relative w-full pt-12 pb-16 bg-black text-white overflow-hidden">
+
+      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute top-10 right-1/2 w-[360px] h-[360px] rounded-full bg-gradient-to-r from-[#302b63] via-[#00bf8f] to-[#1cd8d2] opacity-20 blur-[120px] animate-pulse"></div>
+      <div className="absolute bottom-20 right-0  w-[300px] h-[300px] rounded-full bg-gradient-to-r from-[#302b63] via-[#00bf8f] to-[#1cd8d2] opacity-20 blur-[120px] animate-pulse delay-500">
+      </div>
+      <div className="absolute bottom-1/3 left-0  w-[300px] h-[300px] rounded-full bg-gradient-to-r from-[#302b63] via-[#00bf8f] to-[#1cd8d2] opacity-20 blur-[120px] animate-pulse delay-500">
+      </div>
+    </div>
       <div className="absolute inset-0 -z-20 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-tr from-[#05060a] via-[#071024] to-[#041018]" />
-        <AnimatedBlob
-          className="absolute left-0 top-1/4"
-          color="#302b63"
-          delay={0}
-          style={{ width: 320, height: 320, opacity: 0.18, filter: "blur(120px)" }}
+        <div
+          className="absolute left-0 top-1/4 rounded-full opacity-20"
+          style={{
+            width: 300,
+            height: 300,
+            filter: "blur(120px)",
+            background: "radial-gradient(circle at 30% 20%, #302b63 0%, transparent 60%)",
+          }}
         />
-        <AnimatedBlob
-          className="absolute right-0 bottom-1/4"
-          color="#00bf8f"
-          delay={1.2}
-          style={{ width: 300, height: 300, opacity: 0.14, filter: "blur(120px)" }}
+        <div
+          className="absolute right-0 bottom-1/4 rounded-full opacity-16"
+          style={{
+            width: 300,
+            height: 300,
+            filter: "blur(120px)",
+            background: "radial-gradient(circle at 30% 20%, #00bf8f 0%, transparent 60%)",
+          }}
         />
         <div className="absolute inset-0 bg-black/10 mix-blend-overlay" />
       </div>
 
-      <div ref={containerRef} className="relative z-10 max-w-6xl mx-auto">
-        <header className="mb-8">
-          <h2 className="text-3xl md:text-4xl font-extrabold">My Projects</h2>
-          <p className="mt-2 text-white/80 max-w-2xl">
-            Highlighted systems I architected followed by additional projects — click a featured project to visit it or click any grid card to view concise details.
-          </p>
-        </header>
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <motion.h2 className="text-4xl mt-5 sm:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#1cd8d2] via-[#00bf8f] to-[#302b63] z-10"
+          initial={{opacity:0, y:-30}}
+          whileInView={{opacity:1 , y:0}}
+          transition={{duration:0.5, delay:0.1}}>
+            My Projects
+          </motion.h2>
+          <motion.p className="mt-2 mb-8 text-white/90 text-base sm:text-lg z-10"
+          initial={{opacity:0, y:-10}}
+          whileInView={{opacity:1 , y:0}}
+          transition={{duration:0.5, delay:0.1}}>
+            Selected projects — click any card to read concise technical details.
+    </motion.p>
 
-        {/* Showcase area (3 featured) */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch mb-10">
-          {FEATURED.map((f) => (
-            <motion.div
-              key={f.id}
-              layout
+        {/* Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {PROJECTS.map((p, idx) => (
+            <motion.article
+              key={p.id}
+              initial={{ opacity: 0, y: 8, scale: 0.995 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ delay: idx * 0.04, type: "spring", stiffness: 200, damping: 22 }}
               whileHover={{ y: -6, scale: 1.01 }}
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45 }}
-              className="rounded-2xl overflow-hidden relative bg-gradient-to-tr from-white/3 to-transparent border border-white/6 shadow-sm"
-              style={{ minHeight: 360 }}
+              onClick={() => setSelected(p)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => e.key === "Enter" && setSelected(p)}
+              className="rounded-2xl overflow-hidden border border-white/6 bg-gradient-to-tr from-white/3 to-transparent cursor-pointer"
             >
-              <a href={f.url || "#"} target="_blank" rel="noreferrer" className="block w-full h-full">
-                {/* Image area */}
-                <div className="w-full h-48 bg-black/10 flex items-center justify-center overflow-hidden">
-                  {f.image ? (
-                    <img
-                      src={f.image}
-                      alt={f.title}
-                      className="w-full h-full object-cover object-center"
-                      style={{ maxHeight: 220 }}
-                    />
-                  ) : (
-                    <div
-                      style={{
-                        background: `linear-gradient(135deg, ${f.colors[0]}, ${f.colors[1]})`,
-                        width: "100%",
-                        height: "100%",
-                      }}
-                    />
-                  )}
+              {/* image / visual area */}
+              <div className="w-full h-48 sm:h-56 bg-black/10 flex items-center justify-center overflow-hidden relative">
+                {p.image ? (
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover object-center"
+                  />
+                ) : (
+                  <div
+                    className="absolute inset-0"
+                    style={{ background: `linear-gradient(135deg, ${p.colors[0]}, ${p.colors[1]})` }}
+                  />
+                )}
+
+                <div className="absolute inset-0 bg-black/30" aria-hidden />
+              </div>
+
+              <div className="p-4 sm:p-5">
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <h3 className="text-lg font-semibold leading-tight">{p.title}</h3>
+                    {p.subtitle && <div className="text-sm text-white/70 mt-1">{p.subtitle}</div>}
+                  </div>
+                  <div className="text-sm text-white/60">Open</div>
                 </div>
 
-                <div className="p-5">
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <h3 className="text-xl font-semibold">{f.title}</h3>
-                      <div className="text-sm text-white/70 mt-1">{f.role}</div>
-                    </div>
+                <p className="mt-3 text-sm text-white/80 line-clamp-3">{p.summary}</p>
 
-                    <div className="flex flex-col items-end gap-2">
-                      <div className="text-sm text-white/60">{active.id === f.id ? "Featured" : "Featured"}</div>
-                    </div>
-                  </div>
-
-                  <p className="mt-3 text-sm text-white/80">{f.blurb}</p>
-
-                  <div className="mt-4 flex gap-2 flex-wrap">
-                    {f.tech.map((t) => (
-                      <Pill key={t}>{t}</Pill>
-                    ))}
-                  </div>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {p.tech.map((t) => (
+                    <TechBadge key={t}>{t}</TechBadge>
+                  ))}
                 </div>
-              </a>
-
-              {/* small overlay to open site */}
-              <div className="absolute top-4 right-4 text-white/30 text-xs">Open site ↗</div>
-            </motion.div>
+              </div>
+            </motion.article>
           ))}
         </div>
-
-        {/* Grid for additional projects with animation + click-to-open */}
-        <div className="mb-6">
-          <h3 className="text-2xl font-semibold mb-4">Other projects</h3>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {GRID.map((g, i) => (
-  <motion.article
-    key={g.id}
-    whileHover={{ y: -6 }}
-    initial={{ opacity: 0, y: 8, scale: 0.995 }}
-    animate={{ opacity: 1, y: 0, scale: 1 }}
-    transition={{ delay: i * 0.06, type: "spring", stiffness: 220, damping: 20 }}
-    className="rounded-2xl p-4 bg-gradient-to-tr from-white/3 to-transparent border border-white/6 cursor-pointer"
-    onClick={() => setSelected(g)}
-    role="button"
-    tabIndex={0}
-    onKeyDown={(e) => e.key === "Enter" && setSelected(g)}
-  >
-    <div className="flex items-start justify-between">
-      <div>
-        <h4 className="font-semibold">{g.title}</h4>
-        <p className="text-sm text-white/80 mt-1">{g.short}</p>
-      </div>
-      <div className="hidden sm:flex flex-col items-end gap-2">
-        {g.url && (
-          <a href={g.url} target="_blank" rel="noreferrer" className="text-white/80 p-2 rounded-md">
-            <FaExternalLinkAlt />
-          </a>
-        )}
-      </div>
-    </div>
-
-    <div className="mt-4 flex gap-2 flex-wrap">
-      {g.tech.map((t) => (
-        <Pill key={t}>{t}</Pill>
-      ))}
-    </div>
-  </motion.article>
-))}
-
-          </div>
-        </div>
       </div>
 
-      {/* Modal for grid project details */}
+      {/* Modal */}
       <AnimatePresence>
         {selected && (
           <motion.div
@@ -316,34 +243,56 @@ export default function Projects() {
             <div className="absolute inset-0 bg-black/70" onClick={() => setSelected(null)} />
 
             <motion.div
-              initial={{ y: 20, scale: 0.98 }}
+              initial={{ y: 12, scale: 0.98 }}
               animate={{ y: 0, scale: 1 }}
-              exit={{ y: 10, scale: 0.98 }}
-              transition={{ duration: 0.22 }}
+              exit={{ y: 8, scale: 0.98 }}
+              transition={{ duration: 0.18 }}
               className="relative z-10 w-full max-w-3xl mx-6 rounded-2xl bg-[#071024] p-6 border border-white/6 shadow-2xl"
             >
               <header className="flex items-start justify-between">
                 <div>
                   <h3 className="text-2xl font-bold">{selected.title}</h3>
-                  <div className="text-sm text-white/70 mt-1">{selected.subtitle || ""}</div>
+                  {selected.subtitle && <div className="text-sm text-white/70 mt-1">{selected.subtitle}</div>}
                 </div>
-                <button onClick={() => setSelected(null)} className="text-white/60 hover:text-white" aria-label="Close">
-                  ✕
-                </button>
+
+                <div className="flex items-center gap-3">
+                  {selected.repo && selected.repo !== "#" && (
+                    <a href={selected.repo} target="_blank" rel="noreferrer" className="text-white/80 p-2 rounded-md">
+                      <FaGithub />
+                    </a>
+                  )}
+                  {selected.url && selected.url !== "#" && (
+                    <a href={selected.url} target="_blank" rel="noreferrer" className="text-white/80 p-2 rounded-md">
+                      <FaExternalLinkAlt />
+                    </a>
+                  )}
+                  <button onClick={() => setSelected(null)} className="text-white/60 hover:text-white" aria-label="Close">
+                    ✕
+                  </button>
+                </div>
               </header>
 
-              <div className="mt-4 text-white/85 space-y-3">
-                <p className="text-sm">{selected.short}</p>
+              <div className="mt-4 text-white/85 space-y-4">
+                <div className="w-full h-44 sm:h-56 bg-black/10 overflow-hidden rounded-md">
+                  {selected.image ? (
+                    <img src={selected.image} alt={selected.title} className="w-full h-full object-cover object-center" loading="lazy" />
+                  ) : (
+                    <div style={{ background: `linear-gradient(135deg, ${selected.colors?.[0] ?? "#333"}, ${selected.colors?.[1] ?? "#666"})` }} className="w-full h-full" />
+                  )}
+                </div>
 
-                {selected.bullets && (
-                  <ul className="list-disc list-inside mt-2 text-sm text-white/80">
-                    {selected.bullets.map((b, i) => (
+                <p className="text-sm">{selected.summary}</p>
+
+                <div>
+                  <strong className="text-sm">Key points</strong>
+                  <ul className="list-disc list-inside mt-2 text-sm text-white/80 space-y-1">
+                    {selected.bullets?.map((b, i) => (
                       <li key={i}>{b}</li>
                     ))}
                   </ul>
-                )}
+                </div>
 
-                <div className="mt-4">
+                <div>
                   <strong className="text-sm">Tech</strong>
                   <div className="mt-2 flex flex-wrap gap-2">
                     {selected.tech?.map((t) => (
@@ -354,17 +303,23 @@ export default function Projects() {
                   </div>
                 </div>
 
-                <div className="mt-6 flex gap-3">
+                <div className="mt-4 flex gap-3">
                   {selected.repo && selected.repo !== "#" && (
                     <a className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-600 text-white text-sm" href={selected.repo} target="_blank" rel="noreferrer">
                       <FaGithub /> View repo
                     </a>
                   )}
+
                   {selected.url && selected.url !== "#" && (
                     <a className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/6 text-white text-sm" href={selected.url} target="_blank" rel="noreferrer">
                       <FaExternalLinkAlt /> Visit site
                     </a>
                   )}
+
+                  {/* local resume file (developer-specified path) */}
+                  <a href={RESUME_PATH} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/6 text-white text-sm" target="_blank" rel="noreferrer">
+                    Download resume
+                  </a>
 
                   <button onClick={() => setSelected(null)} className="ml-auto inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/6 text-white text-sm">
                     Close

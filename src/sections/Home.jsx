@@ -1,15 +1,16 @@
 import { motion } from "framer-motion";
 import React, { useMemo } from "react";
-import { FaGithub, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
-import { SiLeetcode } from "react-icons/si";
+import { FaDownload } from "react-icons/fa";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
+import { SiGeeksforgeeks, SiLeetcode } from "react-icons/si";
 import Photo from "../assets/Sanjay.png";
 import ParticlesBackground from "../components/ParticlesBackground";
 
 const socials = [
-  {Icon: FaXTwitter , label : "X", href:""},
-  {Icon: FaLinkedinIn, label : "LinkedIn", href:""},
-  {Icon: FaGithub, label : "GitHub", href:""},
-  {Icon: SiLeetcode, label : "LeetCode", href:""}
+  {Icon: FaLinkedinIn, label : "LinkedIn", href:"www.linkedin.com/in/sanjay-kumar-305a07387"},
+  {Icon: FaGithub, label : "GitHub", href:"https://github.com/skstlenovo"},
+  {Icon: SiLeetcode, label : "LeetCode", href:"https://leetcode.com/u/SanjayJavaDeveloper/"},
+  {Icon: SiGeeksforgeeks, label : "GeeksForGeeks", href:"https://www.geeksforgeeks.org/user/sanjayjavadeveloper/"}
 ]
 
 const float = {
@@ -101,7 +102,7 @@ export default function Home(){
             initial={{opacity:0, y:20}}
             animate={{opacity:1, y:0}}
             transition={{delay:0.4, duration:0.8}}>
-              Expert in developing high-performance applications using Java, Spring Boot, Microservices, SQL, and MongoDB, with a strong focus on building scalable solutions, optimizing system performance, and delivering clean, reliable code.
+              Expert in developing backend applications using Java, Spring Boot, Microservices, SQL, and MongoDB, with a strong focus on building scalable solutions, optimizing system performance, and delivering clean, reliable code.
             </motion.p>
             <motion.div className="mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-6"
             initial={{opacity:0}}
@@ -109,10 +110,13 @@ export default function Home(){
             transition={{delay:0.8, duration:0.8}}>
               <a href="#projects" 
               className="px-5 py-2 rounded-full font-medium text-base text-white
-              bg-gradient-to-r from-[#1cd8d2] via-[#00bf8f] to-[#302b63]
+              border border-[#FFFFFF]
+              bg-gradient-to-r from-[#083d3b] via-[#005741] to-[#131031]
               shadow-lg hover:scale-105 transition-all">View My Projecs</a>
               <a href= "/Sanjay_Java_Developer_[3.3Yrs].pdf" download
-              className="px-5 py-2 rounded-full font-medium text-base text-black bg-gray-400 hover:bg-green-400 shadow-lg hover:scale-105 transition-all">View My CV</a>
+              className="flex items-center px-5 py-2 rounded-full font-medium text-base text-white border border-[#FFFFFF] bg-gradient-to-r from-[#083d3b] via-[#005741] to-[#131031] hover:bg-green-400 shadow-lg hover:scale-105 transition-all">
+              <FaDownload className="mr-2 "/>
+               Download CV</a>
             </motion.div>
             <div className="mt-10 flex - gap-5 text-xl md:text-2xl justify-center lg:justify-start">
               {socials.map(({Icon, label , href}) => (
