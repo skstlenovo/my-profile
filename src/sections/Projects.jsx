@@ -110,7 +110,7 @@ const PROJECTS = [
       "Ensured reliable file handling with error recovery, logging, and duplicate prevention mechanisms.",
       "Integrated with storage services and optimized performance to support large volumes of emails and attachments.",
     ],
-    tech: ["Node.js", "MongoDB", "Redis"],
+    tech: ["Java", "Flutter", ],
     colors: ["#0891b2", "#0ea5a4"],
   },
 ];
@@ -184,7 +184,7 @@ export default function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          Selected projects — click any card to read concise technical details.
+          You can click any card to read concise technical details.
         </motion.p>
 
         {/* Grid */}
@@ -284,9 +284,9 @@ export default function Projects() {
           max-w-lg          /* smaller modal */
           sm:max-w-2xl      /* moderate size on bigger screens */
           max-h-[85vh]      /* prevents overflow */
-          max-h-[85vh] overflow-y-auto 
+          overflow-y-auto 
           sm:scrollbar-hide 
-scrollbar-thin scrollbar-thumb-white scrollbar-track-transparent
+          scrollbar-thin scrollbar-thumb-white scrollbar-track-transparent
           mx-auto
           rounded-2xl
           bg-[#071024]
