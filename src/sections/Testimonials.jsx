@@ -2,7 +2,7 @@
 const Testimonials = () => {
   return (
     <div className = "w-full h-screen">
-      Testimonials
+      Testimonials section
     </div>
   )
 }
