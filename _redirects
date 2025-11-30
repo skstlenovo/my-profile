@@ -1,5 +1,2 @@
-# 1. EXCEPTION: Serve sitemap.xml directly (MUST BE FIRST)
 /sitemap.xml /sitemap.xml 200
-
-# 2. THE CATCH-ALL: The rest of your app routes go here
 /* /index.html 200
