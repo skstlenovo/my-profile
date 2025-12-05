@@ -81,7 +81,7 @@ export default function Contact(){
         transition={{duration:0.6}}
         >
         <motion.img src={img5} alt="image5"
-        className="w-72 md:w-105 rounded-2xl shadow-lg object-cover"
+        className="w-72 md:w-105 rounded-2xl shadow-lg object-cover "
         animate={{y: [0, -10, 0]}}
         transition={{duration: 2, repeat: Infinity, ease: "easeInOut"}}/>
         </motion.div>

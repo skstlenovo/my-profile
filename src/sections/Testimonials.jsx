@@ -7,8 +7,8 @@ import img4 from '../assets/img4.jpg';
 
 const testimonials =[
   {
-    name: "Prasun Bhowmick",
-    role: "EMF Lead Engineer",
+    name: "Suraj Sharma",
+    role: "Software Engineer",
     review:"Working with Sanjay has been an excellent experience. He brings strong problem-solving skills, a deep understanding of Java and Spring Boot, and a disciplined approach toward architecture and best practices. His commitment to delivering robust systems stands out.",
     image: img1,
   },
@@ -20,13 +20,13 @@ const testimonials =[
   },
   {
     name: "Manohar Mandal",
-    role: "Assistant Manager",
+    role: "Deputy Manager",
     review:"Sanjay is a dependable developer who takes ownership of his work and strives for excellence. He is quick in debugging, proactive in identifying improvements, and always ensures that the final product is efficient, secure, and maintainable.",
     image: img3,
   },
   {
     name: "Sarita Kumari",
-    role: "Teacher",
+    role: "Frontend Developer",
     review:"Sanjay blends technical expertise with a collaborative attitude. He communicates clearly, meets deadlines consistently, and contributes solutions that enhance overall project quality.",    image: img4,
   }
 ]
