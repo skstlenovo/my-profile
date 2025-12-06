@@ -35,22 +35,23 @@ export default function Footer() {
           <div key={index} className={`absolute rounded-full bg-gradient-to-r from-[#302b63] via-[#00bf8f] to-[#1cd8d2] animate-pulse ${glow}`}/>
         ))}
       </div>
-    <motion.div className="relative z-10 px-4 sm:px-8 lg:px-10 py-16 md:py-20 flex flex-col items-center text-center space-y-6"
+    <motion.div className="relative z-10 px-4 sm:px-8 lg:px-10 py-16 md:py-20 flex flex-col items-center text-center"
     initial={{opacity:0 , y:30}}
     whileInView={{opacity:1 , y:0}}
     transition={{duration:0.8}}>
       <h1 className="font-semibold leading-none text-white text-center select-none"
       style={{
-        fontSize: "clamp(0.8rem, 3vw, 10rem)",
+        fontSize: "clamp(0.7rem, 2.5vw, 10rem)",
         letterSpacing: "0.02em",
         lineHeight: "0.9",
         padding:"0 3vm",
         whiteSpace:"nowrap",
         textShadow: "0 2px 18px rgba(0,0,0,0.45)"
-      }}>Java Backend <span className="text-base text-cyan-400">by Sanjay Kumar</span></h1>
+      }}>Java Backend{" "}<span
+      className="font-bold text-cyan-400 text-[6px] md:text-base">by Sanjay Kumar</span></h1>
       
-      <div className="h-[3px] w-24 md:w-32 rounded-full bg-gradient-to-r from-[#0d58cc] via-cyan-300 to-emerald-400"/>
-      <div className="flex gap-5 text-2xl md:text-3xl">
+      <div className="h-[0.9px] md:h-[2px] w-24 md:w-90 rounded-full bg-gradient-to-r from-[#0d58cc] via-cyan-300 to-emerald-400 mb-2 md:mb-4"/>
+      <div className="flex gap-2 md:gap-5 text-base md:text-2xl mb-2 md:mb-4">
         {socials.map(({Icon, label, href}) => (
           <motion.a key={label} href={href} target="_blank" rel="noopener noreferrer"
           variants={glowVariants}
@@ -62,11 +63,11 @@ export default function Footer() {
           </motion.a>
         ))}
       </div>
-      <div>
-      <p className="text-gray-300 italic max-w-xl">
+      <div >
+      <p className="text-gray-300 italic text-[7px] md:text-xs">
         "Well Done Is Better than Well Said"
       </p>
-      <p className='text-sm text-white'>&copy; {new Date().getFullYear()} Sanjay Kumar, All rights reserved.</p>
+      <p className='text-[7px] md:text-[10px] text-white'>&copy; {new Date().getFullYear()} Sanjay Kumar, All rights reserved.</p>
       </div>
     </motion.div>
     </footer>
