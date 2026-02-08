@@ -37,16 +37,16 @@ const PROJECTS = [
       vector database for efficient search and retrieval. This solution significantly reduces manual effort and enhances 
       recruitment efficiency. `,
     bullets: [
-      "Designed and developed both backend services using Spring Boot and frontend interfaces using Angular.",
+      "Designed and developed both backend services using Spring Boot and frontend interfaces using ReactJs.",
       "Integrated AI tools to extract CV details for automated shortlisting against job descriptions.",
       "Implemented seamless data storage in MongoDB and a vector database for optimized data retrieval and similarity searches.",
       "Ensured scalability and efficiency of the application for real-world recruitment workflows.",
-      "Designed and developed both backend services using Spring Boot and frontend interfaces using Angular.",
+      "Designed and developed both backend services using Spring Boot and frontend interfaces using ReactJs.",
       "Integrated AI tools to extract CV details for automated shortlisting against job descriptions.",
       "Implemented seamless data storage in MongoDB and a vector database for optimized data retrieval and similarity searches.",
       "Ensured scalability and efficiency of the application for real-world recruitment workflows.",
     ],
-    tech: ["Java", "Spring Boot", "MongoDB", "Microservices", "Flutter"],
+    tech: ["Java", "Spring Boot", "MongoDB", "Microservices", "ReactJs"],
     colors: ["#302b63", "#00bf8f"],
   },
   {
@@ -110,7 +110,7 @@ const PROJECTS = [
       "Ensured reliable file handling with error recovery, logging, and duplicate prevention mechanisms.",
       "Integrated with storage services and optimized performance to support large volumes of emails and attachments.",
     ],
-    tech: ["Java", "Flutter", ],
+    tech: ["Java", "ReactJs", ],
     colors: ["#0891b2", "#0ea5a4"],
   },
 ];

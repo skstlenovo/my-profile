@@ -113,7 +113,7 @@ export default function Home(){
               border border-[#FFFFFF]
               bg-gradient-to-r from-[#083d3b] via-[#005741] to-[#131031]
               shadow-lg hover:scale-105 transition-all">View My Projecs</a>
-              <a href= "/Sanjay_Java_Developer_[3.3Yrs].pdf" download
+              <a href= "/Sanjay_Java_Developer_[3.7Yrs].pdf" download
               className="flex items-center px-5 py-2 rounded-full font-medium text-base text-white border border-[#FFFFFF] bg-gradient-to-r from-[#083d3b] via-[#005741] to-[#131031] hover:bg-green-400 shadow-lg hover:scale-105 transition-all">
               <FaDownload className="mr-2 "/>
                Download CV</a>

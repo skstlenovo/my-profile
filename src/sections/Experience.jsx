@@ -13,8 +13,8 @@ const experience = [
   {
     role: "Software Developer",
     company: "ADILA IT Consultancy Pvt Ltd",
-    duration: " Jan 2023 - December 2025",
-    Experience: "3 Years",
+    duration: " Jan 2023 - till now",
+    Experience: "3+ Years",
     description: "Delivered and maintained Java-based applications using Spring Boot, SQL, and MongoDB, ensuring smooth performance through requirement handling, system upgrades, database management, and proactive bug resolution."
   }
 ]

@@ -4,6 +4,7 @@ import { useState } from "react";
 import img5 from "../assets/img5.png";
 import ParticlesBackground from "../components/ParticlesBackground";
 
+
 const SERVICE_ID = import.meta.env.VITE_SERVICE_ID;
 const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID;
 const PUBLIC_KEY = import.meta.env.VITE_PUBLIC_KEY;
@@ -94,7 +95,7 @@ export default function Contact(){
           </h2>
           <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
             <div className="flex flex-col">
-              <lable className="mb-1">Your Name<span className="text-red-500">*</span></lable>
+              <label className="mb-1">Your Name<span className="text-red-500">*</span></label>
               <input type="text"
               name="name"
               placeholder="Your Name"
@@ -104,7 +105,7 @@ export default function Contact(){
               {errors.name && <p className="text-red-500 text-xs">{errors.name}</p>}
             </div>
             <div className="flex flex-col">
-              <lable className="mb-1">Your Email<span className="text-red-500">*</span></lable>
+              <label className="mb-1">Your Email<span className="text-red-500">*</span></label>
               <input type="email"
               name="email"
               placeholder="Your Email"
@@ -114,7 +115,7 @@ export default function Contact(){
               {errors.email && <p className="text-red-500 text-xs">{errors.email}</p>}
             </div>
             <div className="flex flex-col">
-              <lable className="mb-1">Subject<span className="text-red-500">*</span></lable>
+              <label className="mb-1">Subject<span className="text-red-500">*</span></label>
               <input type="text"
               name="subject"
               placeholder="Subject"
@@ -124,7 +125,7 @@ export default function Contact(){
               {errors.subject && <p className="text-red-500 text-xs">{errors.subject}</p>}
             </div>
             <div className="flex flex-col">
-              <lable className="mb-1">Message<span className="text-red-500">*</span></lable>
+              <label className="mb-1">Message<span className="text-red-500">*</span></label>
               <textarea
               name="message"
               placeholder="Enter Your Message"
