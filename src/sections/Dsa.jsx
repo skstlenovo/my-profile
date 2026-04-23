@@ -117,7 +117,7 @@ export default function DsaCalendar() {
       setLoading(true);
 
       const response = await axios.get(
-        `https://leetcode-stats-api.herokuapp.com/${USERNAME}`
+        `https://leetcode-api-faisalshohag.vercel.app/${USERNAME}`
       );
 
       const data = response.data;

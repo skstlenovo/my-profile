@@ -3,9 +3,9 @@ import Photo from "../assets/Sanjay_PP.jpg";
 
 export default function About() {
   const stats = [
-    {label : "Experience", value : "3.7 Years"},
+    {label : "Experience", value : "3.8 Years"},
     {label : "Projects", value : "3+"},
-    {label : "Languages", value : "Java, HTML, SQL "}
+    {label : "Tech Stack", value : "Java, Spring Boot, Microservices"}
   ]
   const glows = [
     "-top-10 -left-10 w-[360px] h-[360px] opacity-20 blur-[120px]",
