@@ -39,7 +39,7 @@ export default function About() {
               Java Developer
             </p>
             <p className="mt-4 text-grey-300 leading-relaxed text-sm sm:text-base max-w-xl md:max-w-2xl">
-              I am a software developer with 3.7 years of experience building reliable applications using Java, Spring Boot, Microservices, SQL, and MongoDB. I specialize in problem-solving, debugging, and applying strong OOP and DSA fundamentals to deliver efficient and scalable solutions.
+              I am a software developer with 3.8 years of experience building reliable applications using Java, Spring Boot, Microservices, SQL, and MongoDB. I specialize in problem-solving, debugging, and applying strong OOP and DSA fundamentals to deliver efficient and scalable solutions.
             </p>
             <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 max-w-xl">
               {stats.map((stat, index) => (
